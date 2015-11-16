@@ -45,7 +45,10 @@ class UsuariosController extends AppController{
 		Router::redirect("usuarios/");
 	}
 	public function ver($id){
-		
+		$this->usuario = Load::model("usuarios")->find($id);
+		$this->contactos = Load::model("usuarios_contactos")->find("join: inner join usuarios on usuarios.id = usuarios_contactos.usuarios_id
+																		  inner join contactos on contactos.id = usuarios_contactos.contactos_id",
+																	"columns: contactos.nombre, contactos.descripcion, contactos.email, contactos.created, contactos.id");
 	}
 }
 

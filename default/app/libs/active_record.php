@@ -16,5 +16,10 @@ Load::coreLib('kumbia_active_record');
  */
 class ActiveRecord extends KumbiaActiveRecord
 {
-
+	public function last_id(){
+		$r = $this->find("limit: 1","columns: id","order: id desc");
+		if ($r) {
+			return $r[0]->id;
+		}
+	}
 }
