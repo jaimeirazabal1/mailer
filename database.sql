@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-11-2015 a las 16:58:31
+-- Tiempo de generación: 16-11-2015 a las 17:25:14
 -- Versión del servidor: 5.5.46-0ubuntu0.14.04.2
 -- Versión de PHP: 5.5.9-1ubuntu4.14
 
@@ -34,7 +34,15 @@ CREATE TABLE IF NOT EXISTS `contactos` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `contactos`
+--
+
+INSERT INTO `contactos` (`id`, `nombre`, `descripcion`, `email`, `created`) VALUES
+(4, 'Jaime Irazabal Hotmail', 'Desarrollador de aplicaciones web', 'jaimeirazabal1@hotmail.com', '2015-11-16 21:47:27'),
+(5, 'Jaime Irazabal', 'Desarrollador de aplicaciones web', 'jaimeirazabal1@gmail.com', '2015-11-16 21:47:52');
 
 -- --------------------------------------------------------
 
@@ -91,7 +99,15 @@ CREATE TABLE IF NOT EXISTS `usuarios_contactos` (
   `usuarios_id` int(11) NOT NULL,
   `contactos_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `usuarios_contactos`
+--
+
+INSERT INTO `usuarios_contactos` (`id`, `usuarios_id`, `contactos_id`) VALUES
+(1, 1, 4),
+(2, 1, 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
