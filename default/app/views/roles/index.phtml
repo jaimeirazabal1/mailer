@@ -1,0 +1,33 @@
+
+        <div id="page-wrapper">
+        <?php View::content() ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Roles</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <table class="table table-condensed table-striped">
+                <thead>
+            
+                    <th>Role</th>
+                    <th>Acción</th>
+                </thead>
+                <?php foreach ($roles as $key => $value): ?>
+                    <tr>
+                     
+                        <td><?php echo $value->role ?></td>
+            
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                              <?php echo Html::link("roles/edit/{$value->id}","Editar","class='btn btn-default'") ?>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </table>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>

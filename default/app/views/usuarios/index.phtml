@@ -1,0 +1,34 @@
+        <div id="page-wrapper">
+            <?php View::content() ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Usuarios</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <table class="table table-condensed table-striped">
+                <thead>
+                    <th>Login</th>
+                    <th>Role</th>
+                    <th>Creado</th>
+                    <th>Acción</th>
+                </thead>
+                <?php foreach ($usuarios as $key => $value): ?>
+                    <tr>
+                        <td><?php echo $value->login ?></td>
+                        <td><?php echo $value->role ?></td>
+                        <td><?php echo $value->created ?></td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                              <?php echo Html::link("usuarios/edit/{$value->id}","Editar","class='btn btn-default'") ?>
+                              <?php echo Html::link("usuarios/ver/{$value->id}","Ver","class='btn btn-primary'") ?>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </table>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>

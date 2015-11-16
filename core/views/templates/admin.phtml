@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta http-equiv='Content-type' content='text/html; charset=<?php echo APP_CHARSET ?>' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title><?php echo $kumbia_title ?></title>
+    <?php Tag::css('bootstrap_holo_theme/css/bootstrap.min') ?>
+    <?php Tag::css('bootstrap_holo_theme/css/styles') ?>
+      <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+    <?php //Tag::css('style') ?>
+    <?php echo Html::includeCss() ?>
+    <?php echo Tag::js("bootstrap_holo_theme/js/bootstrap.min") ?>
+    <?php echo Tag::js("bootstrap_holo_theme/js/scripts.min") ?>
+  </head>
+  <body>
+      <div class="page-container">
+        <?php echo Flash::valid("hola holo theme") ?>
+        <?php View::content() ?>
+      </div>
+  </body>
+</html>

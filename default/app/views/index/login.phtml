@@ -1,0 +1,36 @@
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Log In</h3>
+                    </div>
+                    <div class="panel-body">
+                    <?php View::content() ?>
+                    <?php echo Form::open("","POST",'role="form"') ?>
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="User Name" name="usuarios[nombre]" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="usuarios[clave]" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <?php echo Form::submit("Login",'class="btn btn-lg btn-success btn-block"') ?>
+                                <hr>
+                                <a href="<?php echo PUBLIC_PATH ?>index/newuser" >New User</a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
