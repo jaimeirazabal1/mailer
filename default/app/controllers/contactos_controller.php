@@ -43,6 +43,28 @@ class ContactosController extends AppController{
 			Router::redirect("index/login");
 		}
 	}
+	public function edit($id_contacto,$id_usuario_contacto){
+		if (Input::post("contactos")) {
+			$contacto = Load::model("contactos",Input::post("contactos"));
+			if ($contacto->update()) {
+				Flash::valid("Contacto editado");
+			}else{
+				Flash::error("Contacto no se editó");
+			}
+			Router::redirect("contactos/usuario/$id_usuario_contacto");
+		}
+		$this->contactos = Load::model("contactos")->find($id_contacto);
+		$this->usuario = Load::model("usuarios")->find($id_usuario_contacto);
+	}
+	public function delete($id_contacto,$id_usuario_contacto){
+		$contacto = Load::model("contactos")->find($id_contacto);
+		if ($contacto->delete()) {
+			Flash::valid("Contacto Eliminado");
+		}else{
+			Flash::error("No se eliminó el contacto");
+		}
+		Router::redirect("contactos/usuario/$id_usuario_contacto");
+	}
 }
 
 

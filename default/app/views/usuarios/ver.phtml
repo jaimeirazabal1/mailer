@@ -10,6 +10,7 @@
            <div class="btn-group" role="group" aria-label="...">
               <?php echo Html::link("contactos/create/{$usuario->id}","Agregar Un Contacto","class='btn btn-primary'") ?>
               <?php echo Html::link("contactos/usuario/{$usuario->id}","Ver Contactos de Usuario","class='btn btn-primary'") ?>
+              <?php echo Html::link("mensajes/index/{$usuario->id}","Mis Mensajes","class='btn btn-primary'") ?>
             </div>
             <h3>Mails Enviados</h3>
             <table class="table">

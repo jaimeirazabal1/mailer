@@ -13,6 +13,7 @@
             </div>
             <!-- /.row -->
             <div class="btn-group" role="group" aria-label="...">
+              <?php echo Html::link("#","< Volver","class='btn btn-primary' Onclick='history.back(1)'") ?>
               <?php echo Html::link("mensajes/create","Crear Mensaje","class='btn btn-primary'") ?>
             </div>
             <br>
@@ -33,7 +34,7 @@
                   <td><?php echo $value->updated_at ?></td>
                   <td>
                     <div class="btn-group" role="group" aria-label="...">
-                      <?php echo Html::link("mensajes/ver/{$value->id}","Ver","class='btn btn-primary'") ?>
+                      <?php echo Html::link("mensajes/ver/{$value->id}/$value->usuarios_id","Ver","class='btn btn-primary'") ?>
                     </div>                      
                   </td>
                   <td></td>

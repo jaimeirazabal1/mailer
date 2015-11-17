@@ -7,6 +7,10 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            <div class="btn-group" role="group" aria-label="...">
+              <?php echo Html::link("usuarios/ver/{$usuario->id}","< Volver","class='btn btn-primary'") ?>
+            </div>
+            
             <table class="table">
               <thead>
                 <td>Nombre</td>
@@ -21,7 +25,11 @@
                   <td><?php echo $value->descripcion ?></td>
                   <td><?php echo $value->email ?></td>
                   <td><?php echo $value->created ?></td>
-                  <td></td>
+                  <td>
+                      <div class="btn-group" role="group" aria-label="...">
+                        <?php echo Html::link("contactos/edit/{$value->id}/$usuario->id","Editar","class='btn btn-primary'") ?>
+                      </div>
+                  </td>
                 </tr>
               <?php endforeach ?>
             </table>

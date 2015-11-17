@@ -10,8 +10,8 @@
             <!-- /.row -->
             <br>
             <div class="btn-group" role="group" aria-label="...">
-              <?php echo Html::link("mensajes/","< Volver","class='btn btn-primary'") ?>
-              <?php echo Html::link("mensajes/edit/{$mensaje->id}","Editar","class='btn btn-primary'") ?>
+              <?php echo Html::link("mensajes/index/$usuario->id","< Volver","class='btn btn-primary'") ?>
+              <?php echo Html::link("mensajes/edit/{$mensaje->id}/$mensaje->usuario_id","Editar","class='btn btn-primary'") ?>
             </div>
             <br>
             <br>
