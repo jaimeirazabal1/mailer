@@ -35,18 +35,19 @@ class IndexController extends AppController
         $usuarios = new Usuarios();
         if (Input::post("usuarios")) {
             # code...
-            $pwd = $usuarios->cript(Input::post("usuarios")['clave']);
-            $usuario = Input::post("usuarios")['nombre'];
+            $pwd = $usuarios->cript(Input::post("usuarios")['password']);
+            $usuario = Input::post("usuarios")['login'];
 
-            $auth = new Auth("model", "class: usuarios", "nombre: $usuario", "clave: $pwd");
+            $auth = new Auth("model", "class: usuarios", "login: $usuario", "password: $pwd");
             if ($auth->authenticate()) {
                 View::template('default');
                 Router::redirect("index/index");
             } else {
-                Flash::error("Falló");
+                Flash::error("Login o password invalidos");
             }
         }
     }
+
     public function newuser(){
         View::template("login");
         if (Input::post("usuarios")) {

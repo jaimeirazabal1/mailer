@@ -1,0 +1,35 @@
+        <div id="page-wrapper">
+<?php View::content() ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Editar Mensaje</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="btn-group" role="group" aria-label="...">
+              <?php echo Html::link("mensajes/","< Volver","class='btn btn-primary'") ?>
+            </div>
+            <br>
+            <br>
+            <?php echo Form::open() ?>
+            <div class="form-group">
+              <?php echo Form::hidden("mensajes.id") ?>
+              <?php echo Form::hidden("mensajes.created_at") ?>
+              <?php echo Form::label("Asunto","Asunto:") ?>
+              <?php echo Form::text("mensajes.asunto","class='form-control'") ?>
+            </div>
+            <div class="form-group">
+              <?php echo Form::label("Cuerpo","Cuerpo:") ?>
+              <?php echo Form::textarea("mensajes.cuerpo","class='ckeditor'") ?>
+            </div>
+            <?php echo Form::submit("Actualizar","class='btn btn-primary'") ?>
+            <?php echo Form::close() ?>
+        </div>
+        <!-- /#page-wrapper -->
+  <br>
+    </div>
+<?php echo Tag::js("ckeditor") ?>
+<script type="text/javascript">
+  $()
+</script>

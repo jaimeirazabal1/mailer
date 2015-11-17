@@ -218,4 +218,42 @@ class Util
         return $s;
     }
 
+    public static function recortar_texto($texto, $limite=100){   
+        $texto = trim($texto);
+        $texto = strip_tags($texto);
+        $tamano = strlen($texto);
+        $resultado = '';
+        if($tamano <= $limite){
+            return $texto;
+        }else{
+            $texto = substr($texto, 0, $limite);
+            $palabras = explode(' ', $texto);
+            $resultado = implode(' ', $palabras);
+            $resultado .= '...';
+        }   
+        return $resultado;
+    }
+    public function escribirFecha($fecha){
+        $meses = array(
+            '01' => 'Enero',
+            '02' => 'Febrero',
+            '03' => 'Marzo',
+            '04' => 'Abril',
+            '05' => 'Mayo',
+            '06' => 'Junio',
+            '07' => 'Julio',
+            '08' => 'Agosto',
+            '09' => 'Septiembre',
+            '10' => 'Octubre',
+            '11' => 'Noviembre',
+            '12' => 'Diciembre'
+        );
+        $fecha_ = explode("-",explode(' ',$fecha)[0]);
+        $hora = explode(' ',$fecha)[1];   
+        $ano = $fecha_[0];
+        $mes = $meses[$fecha_[1]];
+        $dia = $fecha_[2];
+        return $dia." de ".$mes." de ".$ano." a las ".$hora;
+    }
+
 }

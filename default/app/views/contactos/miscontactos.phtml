@@ -1,0 +1,36 @@
+        <div id="page-wrapper">
+          <?php View::content() ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Mis Contactos</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="btn-group" role="group" aria-label="...">
+              <?php echo Html::link("mensajes/","Mis Mensajes","class='btn btn-primary'") ?>
+            </div>
+            <br>
+            <br>
+            <table class="table">
+              <thead>
+                <td>Nombre</td>
+                <td>Descripción</td>
+                <td>Email</td>
+                <td>Creado</td>
+                <td>Acción</td>
+              </thead>
+              <?php foreach ($contactos as $key => $value): ?>
+                <tr>
+                  <td><?php echo $value->nombre ?></td>
+                  <td><?php echo $value->descripcion ?></td>
+                  <td><?php echo $value->email ?></td>
+                  <td><?php echo $value->created ?></td>
+                  <td></td>
+                </tr>
+              <?php endforeach ?>
+            </table>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>

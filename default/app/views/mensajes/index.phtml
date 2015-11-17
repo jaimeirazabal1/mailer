@@ -1,0 +1,46 @@
+        <div id="page-wrapper">
+<?php View::content() ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <?php if (isset($usuario)): ?>
+                    <h1 class="page-header">Mensajes de <?php echo $usuario->login ?></h1>
+
+                    <?php else: ?>
+                    <h1 class="page-header">Mis Mensajes</h1>
+                    <?php endif ?>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="btn-group" role="group" aria-label="...">
+              <?php echo Html::link("mensajes/create","Crear Mensaje","class='btn btn-primary'") ?>
+            </div>
+            <br>
+            <br>
+            <table class="table">
+              <thead>
+                <th>Asunto</th>
+                <th>Resumen</th>
+                <th>Creado</th>
+                <th>Actualizado</th>
+                <th>Acciones</th>
+              </thead>
+              <?php foreach ($mensajes as $key => $value): ?>
+                <tr>
+                  <td><?php echo $value->asunto ?></td>
+                  <td><?php echo Util::recortar_texto($value->cuerpo) ?></td>
+                  <td><?php echo $value->created_at ?></td>
+                  <td><?php echo $value->updated_at ?></td>
+                  <td>
+                    <div class="btn-group" role="group" aria-label="...">
+                      <?php echo Html::link("mensajes/ver/{$value->id}","Ver","class='btn btn-primary'") ?>
+                    </div>                      
+                  </td>
+                  <td></td>
+                </tr>
+              <?php endforeach ?>
+            </table>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>

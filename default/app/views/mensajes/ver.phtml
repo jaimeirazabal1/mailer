@@ -1,0 +1,32 @@
+        <div id="page-wrapper">
+<?php View::content() ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Ver Mensaje</h1>
+                    Mensaje creado : <?php echo Util::escribirFecha($mensaje->created_at) ?>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <br>
+            <div class="btn-group" role="group" aria-label="...">
+              <?php echo Html::link("mensajes/","< Volver","class='btn btn-primary'") ?>
+              <?php echo Html::link("mensajes/edit/{$mensaje->id}","Editar","class='btn btn-primary'") ?>
+            </div>
+            <br>
+            <br>
+            <table>
+              <tr >
+                <td class='well'><b>Asunto:</b>&nbsp;<?php echo $mensaje->asunto ?></td>
+              </tr>
+              <tr>
+                <td class='well'>
+                  <b>Cuerpo:</b>
+                  <?php echo $mensaje->cuerpo ?>
+                </td>
+              </tr>
+            </table>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
